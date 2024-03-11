@@ -1,0 +1,39 @@
+Data checker:
+Number of fish: 14010
+Ratio of males/females: 5604/8406
++--------+------------+--------------+
+| Marker | Error rate | Missing rate |
++--------+------------+--------------+
+|   1    |    0.5     |     0.05     |
+|   2    |    0.5     |     0.05     |
+|   3    |    0.5     |     0.05     |
+|   4    |    0.5     |     0.05     |
+|   5    |    0.5     |     0.05     |
+|   6    |    0.5     |     0.05     |
+|   7    |    0.5     |     0.05     |
+|   8    |    0.5     |     0.05     |
+|   9    |    0.5     |     0.05     |
+|   10   |    0.5     |     0.05     |
+|   11   |    0.5     |     0.05     |
+|   12   |    0.5     |     0.05     |
+|   13   |    0.5     |     0.05     |
+|   14   |    0.5     |     0.05     |
+|   15   |    0.5     |     0.05     |
++--------+------------+--------------+
+Fitting 5 folds for each of 9240 candidates, totalling 46200 fits
+Best Parameters: {'colsample_bytree': 0.4, 'learning_rate': 0.1, 'max_depth': 2, 'subsample': 0.9}
+
+Performing 5-f cross validation
+Mean 5-f cross validation replicated 20 times was 0.60029
+Average number misclassified samples: 1120
+Average percentage misclassified samples: 39%
+
+Performing 3-f cross validation
+Mean 5-f cross validation replicated 20 times was 0.60000
+Average number misclassified samples: 1867
+Average percentage misclassified samples: 39%
+
+Performing 2-f cross validation
+Mean 5-f cross validation replicated 20 times was 0.59971
+Average number misclassified samples: 2804
+Average percentage misclassified samples: 40%
