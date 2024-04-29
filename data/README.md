@@ -1,2 +1,2 @@
-*.dat - simulated datasets used in the manuscript
+Simulated datasets used in the manuscript
 
