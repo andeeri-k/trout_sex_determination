@@ -1,1 +1,1 @@
-Scripts
+Scripts used in the manuscript
