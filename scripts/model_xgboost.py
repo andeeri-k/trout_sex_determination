@@ -60,7 +60,18 @@ best_model.save_model(out_model_filename) # save trained model
 
 # Function to perform n-fold cross validation
 def n_fold_validation(X: pd.DataFrame, y: pd.Series, model_params: dict, n_folds: int, iterations: int) -> None:
-    """"Function to perform n-fold validation (n_folds) n times (iterations)"""
+    """"Function to perform n-fold validation (n_folds) n times (iterations)
+    Args:
+        X (pd.DataFrame): Input DataFrame containing marker data
+        y (pd.DataFrame): Input DataFrame containing sex data
+        model_params (dict): Input dictionary with model parameters
+        n_folds (int): number of data splits
+        interations (int): number of repeated rounds
+    
+    Returns:
+        Always returns None
+    
+    """
     print(f'\nPerforming {n_folds}-f cross validation')
     aggregator_of_means = [] # list of accuracy means
     clf_cv = xgb.XGBClassifier(objective='binary:logistic', min_child_weight=0, **model_params) # initiate model
@@ -84,5 +95,3 @@ n_fold_validation(X, y, best_params, 5, 20)
 n_fold_validation(X, y, best_params, 3, 20)
 # 2-fold CV replicated 20 times (40 rounds in total)
 n_fold_validation(X, y, best_params, 2, 20)
-
-

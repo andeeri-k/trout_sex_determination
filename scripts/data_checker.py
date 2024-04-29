@@ -1,5 +1,4 @@
 # Data checker for model_xgboost.py
-# There is no error handling, code is tailored for use in xgboost program.
 # Coded by @ndre! RATM!
 # Should you have any questions: andeeri@protonmail.com / https://github.com/andeeri-k
 
@@ -17,7 +16,7 @@ def data_checker(data: pd.DataFrame):
         data (pd.DataFrame): Input DataFrame containing marker data.
 
     Returns:
-        int: Always returns None.
+        Always returns None.
     """
     # Define a function to calculate mean absolute error
     def mean_absolute_error(marker_list: list, sex_list: list):
