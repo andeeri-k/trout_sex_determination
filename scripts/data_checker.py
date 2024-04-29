@@ -19,4 +19,4 @@ def data_checker(data: pd.DataFrame):
         tab_dic['col2'].append(round(mean_absolute_error(data[i], data[0]), 3))
         tab_dic['col3'].append(round(len(data[data[i]==5]) / len(data[i]), 3))
     print(tabulate(tab_dic, headers = ['Marker', 'Error rate', 'Missing rate'], tablefmt='pretty'))
-    return 0
+    return None
