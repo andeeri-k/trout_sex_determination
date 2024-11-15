@@ -83,7 +83,7 @@ def n_fold_validation(X: pd.DataFrame, y: pd.Series, model_params: dict, n_folds
     test_group = len(y)//n_folds # size of the test group
     miscls = int(test_group * (1 - mean_ag)) # number of misclassified samples
     perc_miscls = int(miscls / test_group * 100) # percent of misclassified samples
-    print(f'Mean 5-f cross validation replicated {iterations} times was {mean(aggregator_of_means):.5f}')
+    print(f'Mean {n_folds}-f cross validation replicated {iterations} times was {mean(aggregator_of_means):.5f}')
     print(f'Average number misclassified samples: {miscls}')
     print(f'Average percentage misclassified samples: {perc_miscls}%')
     return None
