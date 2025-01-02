@@ -1,6 +1,6 @@
 # Program used to crete simulated Rainbow Trout genomic data.
 # No parser implemented - data prameters specified inside the code.
-# Coded by @ndre! RATM!
+# Coded by @ndre! RATM
 # Should you have any questions: andeeri@protonmail.com / https://github.com/andeeri-k
 ##########################################################
 
@@ -11,21 +11,21 @@ import random
 
 # Population size and proportion.
 population_size = random.randint(10000, 15000)  # total population size
-males = 40                                      # percentage of males, females == 100% - males
+males = 40                                      # percentage of males, females = 100% - males
 
 
 males = males * 0.01   # convert to [0, 1] scale
-females = 1 - males    # percentage of females
+females = 1 - males    # females
 
 # Create vector of sex
-n_males = int(population_size * males)  # calculate number of males
-n_females = int(population_size * females)  # calculate number of females
-fish_sex = [0 for i in range(n_males)] + [1 for j in range(n_females)]  # create vector
+n_males = int(population_size * males)  # calculate number of males in requested population
+n_females = int(population_size * females)  # calculate number of females in requested population
+fish_sex = [0 for i in range(n_males)] + [1 for j in range(n_females)]  # create vector of sex records
 random.shuffle(fish_sex)  # sample shuffle
 
 # Print some data check
 if population_size != len(fish_sex):
-    print(f"Warning! Created population is smaller then requested.")
+    print(f"Warning! Created population is smaller than requested.")
     print(f"Number of samples is {len(fish_sex)}")
     print(f"Number of males: {fish_sex.count(0)}; females: {fish_sex.count(1)}")
     print(f"Usually no actions needed. Size - percentage are not aliquot.")
@@ -93,31 +93,33 @@ def save_my_data(data: dict, file_name: str):
 
 
 # Creating data
-# Data set 1: 15 markers, missing rate = 5%, error rate = 5%
+## Data set 1: 15 markers, missing rate = 5%, error rate = 5%
 sim_5 = {'sex': fish_sex} # initial data
 for i in range(1, 16):
     sim_5[f"M_{i}"] = marker_vector(sim_5['sex'], error_rate=5, missing_rate=5)
 save_my_data(sim_5, 'sim_5.dat') # save the data
 
-# Data set 2: 15 markers, missing rate = 5%, error rate = 50%
+## Data set 2: 15 markers, missing rate = 5%, error rate = 50%
 sim_50 = {'sex': fish_sex} # initial data
 for i in range(1, 16):
     sim_50[f"M_{i}"] = marker_vector(sim_50['sex'], error_rate=50, missing_rate=5)
 save_my_data(sim_50, 'sim_50.dat') # save the data
 
-# Data set 3: 15 markers, missing rate = 5%, error rate = random from 5 to 50%
+## Data set 3: 15 markers, missing rate = 5%, error rate = random from 5 to 50%
 sim_rand = {'sex': fish_sex} # initial data
 random_error_rate = random.sample(range(5, 50), 15) # vectour of random error rates
 for i in range(1, 16):
     sim_rand[f"M_{i}"] = marker_vector(sim_rand['sex'], error_rate=random_error_rate[i-1], missing_rate=5)
 save_my_data(sim_rand, 'sim_rand.dat') # save the data
 
-# Data set 4: missing rate = 5%, 5 markers error rate = random 5 to 10%, 10 markers error rate = random 10 to 60 %
+## Data set 4: missing rate = 5%, 5 markers error rate = random 5 to 10%, 10 markers error rate = random 20 to 60 %
 sim_real = {'sex': fish_sex} # initial data
+### SNP 1-5
 random_error_rate = random.sample(range(5, 10), 5) # vectour of random error rates
 for i in range(1, 6):
     sim_real[f"M_{i}"] = marker_vector(sim_real['sex'], error_rate=random_error_rate[i-1], missing_rate=5)
 random_error_rate = random.sample(range(20, 60), 10) # vectour of random error rates
+### SNP 6-15
 for i in range(6, 16):
     sim_real[f"M_{i}"] = marker_vector(sim_real['sex'], error_rate=random_error_rate[i-6], missing_rate=5)
 save_my_data(sim_real, 'sim_real.dat') # save the data
