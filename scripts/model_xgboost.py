@@ -1,6 +1,6 @@
 # Code for XGB model. Train, GridSerchCV, validation.
 # No parser option implemented, usage: python3 model_xgboost.py your_data_name trained_model_file_name
-# Coded by @ndre! RATM!
+# Coded by @ndre! RATM
 # Should you have any questions: andeeri@protonmail.com / https://github.com/andeeri-k
 
 
