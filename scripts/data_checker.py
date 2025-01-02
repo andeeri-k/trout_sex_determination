@@ -1,5 +1,5 @@
 # Data checker for model_xgboost.py
-# Coded by @ndre! RATM!
+# Coded by @ndre! RATM
 # Should you have any questions: andeeri@protonmail.com / https://github.com/andeeri-k
 
 ######## Import packages #######
